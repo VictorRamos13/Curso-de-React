@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aula de form</title>
+</head>
+<body>
+
+    <form method="post" action="#" id="frmCandidato" name="frmCandidato" 
+    enctype="multipart/form-data" autocomplete="on">
+
+    <fieldset>
+        
+        <legend>Cadastre-se para uma vibe inexplicável meu</legend>
+
+        <label for="frmName">Nome completo:</label> 
+        <input type="text" id="frmName" required size="50px" autofocus maxlength="5"
+               placeholder="Coloque seu nome" value="" 
+        /> <br><br>
+
+        <label for="frmEmail">E-mail:</label>
+        <input type="email" id="frmEmail" size="50px" value="<sua-conta>@gmail.com"
+               placeholder="Coloque seu e-mail" readonly>
+        
+        <br><br>
+        
+        <label for="frmSenha">Senha:</label>
+        <input type="password" id="frmSenha" minlength="5" size="50px" required>
+
+        <br><br>
+        
+        <label for="frmData">Data:</label>
+        <input type="date" id="frmData" />
+        
+        <br><br>
+        
+        <label for="frmNdependentes">Número de dependentes:</label>
+        <input type="number" id="frmNdependentes" />
+
+        <br><br>
+        
+        <label for="frmColor">Qual sua cor favorita:</label>
+        <input type="color" id="frmColor" />
+
+        <br><br>
+        
+        <label for="frmRange">Qual sua satisfação com a nossa empresa:</label>
+        <input type="range" id="frmRange" min="0" max="10" title="Título">
+
+        <br><br>
+        
+        <p>Qual sua formação:</p>
+
+        <input type="checkbox" name="chkFormacao" id="chkEnsinoFund" value="Ensino Fundamental" checked/> 
+        <label for="chkEnsinoFund">Ensino Fundamental</label><br>
+
+        <input type="checkbox" name="chkFormacao" id="chkEnsinoMed" value="Ensino Médio"/> 
+        <label for="chkEnsinoMed">Ensino Médio</label><br>
+
+        <input type="checkbox" name="chkFormacao" id="chkEnsinoTec" value="Ensino Técnico"/> 
+        <label for="chkEnsinoTec">Ensino Técnico</label><br>
+
+        <input type="checkbox" name="chkFormacao" id="chkEnsinoSup" value="Ensino Superior" /> 
+        <label for="chkEnsinoSup">Graduacao</label><br>
+
+
+        <p>Qual sua titulação máxima:</p>
+
+        <input type="radio" name="rbTitulacao" id="rbGrad" value="Graduacao" checked/> 
+        <label for="rbGrad">Graduação</label><br>
+
+        <input type="radio" name="rbTitulacao" id="rbPosGrad" value="Pós Graduação"/> 
+        <label for="rbPosGrad">Pós Graduação</label><br>
+
+        <input type="radio" name="rbTitulacao" id="rbMest" value="Mestrado"/> 
+        <label for="rbMest">Mestrado</label><br>
+
+        <input type="radio" name="rbTitulacao" id="rbDout" value="Doutorado" /> 
+        <label for="rbDout">Doutorado</label><br>
+
+        <input type="file" /> <br><br>
+
+        <label for="phone">Telefone:</label>
+        <input type="tel" name="phone" id="phone" placeholder="(37) 99876-5987"
+               pattern="([0-9]{2}) [0-9]{5}-[0-9]{4}">
+
+        <br>
+        <input type="submit" value="Manda saporra agora" id="btnCandidatar">
+        <input type="reset">
+        
+
+    </fieldset>
+
+    </form>
+
+    
+</body>
+</html>
