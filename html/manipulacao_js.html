@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manipulação via JS</title>
+</head>
+
+    <script>
+
+        addDependente = () => {
+
+            const container = document.getElementById("dependentesContainer")
+            const divDependente = document.createElement("div")
+            divDependente.classList.add("dependente") 
+
+            const labelNome = document.createElement("label")
+            labelNome.setAttribute("for", "nomeDependente")
+            labelNome.textContent = "Nome do dependente"
+            const inputNome = document.createElement("input")
+            inputNome.type = "text"
+            inputNome.id = "nomeDependente"
+
+            const labelIdade = document.createElement("label")
+            labelIdade.setAttribute("for", "idadeDependente")
+            labelIdade.textContent = "Idade do dependente"
+            const inputIdade = document.createElement("input")
+            inputIdade.type = "number"
+            inputIdade.id = "idadeDependente"
+
+            divDependente.appendChild(labelNome)
+            divDependente.appendChild(inputNome)
+            divDependente.appendChild(document.createElement("br"))
+            divDependente.appendChild(labelIdade)
+            divDependente.appendChild(inputIdade)
+            divDependente.appendChild(document.createElement("br"))
+            container.appendChild(divDependente)
+
+        }
+
+        const viewDependentes = () => {
+
+            const nomes = document.querySelectorAll("#nomeDependente")
+            const idades = document.querySelectorAll("#idadeDependente")
+
+            nomes.forEach((nomeInput, index) => {
+        
+                const idadeInput = idades[index]
+                console.log(`Dependente ${index+1}: \n
+                Nome: ${nomeInput.value}\n
+                Idade: ${idadeInput.value}`)
+
+            });
+
+        }
+
+    </script>
+
+<body>
+
+    <h1>Cadastro de dependentes</h1>
+    <button id="btnAdicionar" onclick="addDependente()">Adicionar Dependentes</button>
+    <button id="btnExibirDados" type="button" onclick="viewDependentes()">Listar Dependentes</button>
+
+    <div id="dependentesContainer">
+        <!-- os campos vão aparecer aqui -->
+    </div>
+
+</body>
+</html>

@@ -4,20 +4,45 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Aula de form</title>
+
+    <script>
+
+        const info = () => {
+
+            nome = document.getElementById("frmName").value
+            email = document.getElementById("frmEmail").value
+            console.log(`Nome: ${nome} \n E-mail: ${email}`)
+        }
+
+        const alterarTexto = () => {
+
+            legend = document.querySelector("legend")
+            legend.innerText = "Tomar no cu so"
+        }
+
+        const alterarHTML = () => {
+
+            p = document.getElementById("p")
+            p.innerHTML = "<p><i><b>Mudei clicando no botao</b></i></p>"
+        }
+
+    </script>
+
 </head>
 <body>
 
-    <form method="post" action="#" id="frmCandidato" name="frmCandidato" 
+    <form method="post" action="#" id="frmForm" name="frmForm" 
     enctype="multipart/form-data" autocomplete="on">
 
     <fieldset>
         
-        <legend>Cadastre-se para uma vibe inexplicável meu</legend>
+        <legend id="legend">Cadastre-se para uma vibe inexplicável meu</legend>
 
         <label for="frmName">Nome completo:</label> 
-        <input type="text" id="frmName" required size="50px" autofocus maxlength="5"
-               placeholder="Coloque seu nome" value="" 
-        /> <br><br>
+        <input type="text" id="frmName" required size="50px"  maxlength="30" 
+               placeholder="Coloque seu nome" value="" /> <!-- autofocus --> 
+               
+        <br><br> 
 
         <label for="frmEmail">E-mail:</label>
         <input type="email" id="frmEmail" size="50px" value="<sua-conta>@gmail.com"
@@ -50,7 +75,7 @@
 
         <br><br>
         
-        <p>Qual sua formação:</p>
+        <p id="p">Qual sua formação:</p>
 
         <input type="checkbox" name="chkFormacao" id="chkEnsinoFund" value="Ensino Fundamental" checked/> 
         <label for="chkEnsinoFund">Ensino Fundamental</label><br>
@@ -82,18 +107,55 @@
         <input type="file" /> <br><br>
 
         <label for="phone">Telefone:</label>
-        <input type="tel" name="phone" id="phone" placeholder="(37) 99876-5987"
-               pattern="([0-9]{2}) [0-9]{5}-[0-9]{4}">
-
+        <input type="tel" name="phone" id="phone" placeholder="(37) 99876-5987" />  <!-- pattern="([0-9]{2}) [0-9]{5}-[0-9]{4}" -->
         <br>
-        <input type="submit" value="Manda saporra agora" id="btnCandidatar">
-        <input type="reset">
+
+        <label for="lista">Selecione alguma coisa:</label>
+        <select id="lista">
+
+            <option value="Alguma">Alguma</option>
+            <option value="Coisa">Coisa</option>
+
+        </select>
+        
+        <br><br>
+
+        <label for="campo-selecao">Seleciona alguma coisa novamente:</label>
+
+        <input list="dataList" id="campo-selecao" name="campo-selecao" />
+
+        <datalist id="dataList">
+            
+            <option value="Alguma"></option>
+            <option value="Coisa"></option>
+            <option value="Novamente"></option>
+
+        </datalist>
+        <br><br>
+
+        <!-- <input type="submit" value="Manda saporra agora" id="btnCandidatar">
+        <input type="reset"> -->
         
 
     </fieldset>
 
     </form>
 
+    <button type="submit" id="btnAdicionar" form="frmForm" onclick="info()">
+        <b>Mandar</b>
+    </button>
+    
+    <button type="reset" form="frmForm">
+        <b>Redefinir</b>
+    </button>
+    
+    <button type="submit" id="btnMudarTexto" form="frmForm" onclick="alterarTexto()">
+        <b>Alterar Texto</b>
+    </button>
+
+    <button type="submit" id="btnMudarHTML" form="frmForm" onclick="alterarHTML()">
+        <b>Alterar HTML</b>
+    </button>
     
 </body>
 </html>
