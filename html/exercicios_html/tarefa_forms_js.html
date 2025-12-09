@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro de Pet para Adoção</title>
+
+    <script>
+
+        const Show = () => {
+
+            const txtName = document.getElementById("txtName").value
+            const dtDate = document.getElementById("dtDate").value
+            const checkboxes = document.querySelectorAll('input[name="chkTipo"]')
+            const chkSelecionadaos = Array.from(checkboxes).filter(checkbox => checkbox.checked)
+            const chkShow = chkSelecionadaos.map(checkbox => checkbox.value)
+            const rbSelecionado = document.querySelector('input[name="rbGenero"]:checked')
+            let generoSelecionado = "Não informado"
+            const history = document.getElementById("history").value
+            const txtCEP = document.getElementById("txtCEP").value
+            const nmbQtd = document.getElementById("nmbQtd").value
+
+            console.log(`Nome do pet: ${txtName}\n`);
+            console.log(`Data de nascimento ou resgate do pet: ${dtDate}\n`);
+            if (chkShow.length > 0) {
+
+                console.log("Você escolheu: " + chkShow.join(', '))
+
+            } else {
+
+                console.log("Nenhum animal selecionado!")
+            }
+
+            if (rbSelecionado) {
+                // 2. Extrai o VALOR (value) do rádio que foi encontrado e está marcado
+                generoSelecionado = rbSelecionado.value
+            }
+            console.log(`Gênero do pet: ${generoSelecionado}\n`)
+
+            console.log(`História do pet: ${history}`)
+
+            console.log(`CEP: ${txtCEP}`)
+
+            console.log(`Quantidade: ${nmbQtd}`)
+
+        }
+    </script>
+
+</head>
+<body>
+    
+
+    <div style="margin: 0 auto; width: 75%;">
+
+        <form method="post" action="#" id="frmForm" name="frmForm" 
+              enctype="multipart/form-data" autocomplete="on">
+
+            <fieldset>
+
+                <legend>Seja Bem-Vindo ao Cadastre Seu Pet!</legend>
+                <p>Cadastre o seu Pet para entrar no nosso banco de adoções!</p>
+
+                <label for="txtName">Nome:</label>
+                <input type="text" name="txtName" id="txtName" required autofocus 
+                placeholder="Coloque o nome do seu pet aqui" size="50%" maxlength="255"/>
+
+                <br><br>
+
+                <label for="dtDate">Data de nascimento ou de resgate:</label>
+                <input type="date" name="dtDate" id="dtDate" />
+
+                <br><br>
+
+                <p id="p">Tipo:</p>
+
+                <input type="checkbox" name="chkTipo" id="chkCachorro" value="Cachorro" /> 
+                <label for="chkCachorro">Cachorro</label>
+
+                <input type="checkbox" name="chkTipo" id="chkGato" value="Gato"/> 
+                <label for="chkGato">Gato</label>
+
+                <input type="checkbox" name="chkTipo" id="chkCavalo" value="Cavalo"/> 
+                <label for="chkCavalo">Cavalo</label>
+
+                <input type="checkbox" name="chkTipo" id="chkVaca" value="Vaca" /> 
+                <label for="chkVaca">Vaca</label>
+
+                <input type="checkbox" name="chkTipo" id="chkRato" value="Rato" /> 
+                <label for="chkRato">Rato</label>
+
+                <input type="checkbox" name="chkTipo" id="chkHamster" value="Hamster" /> 
+                <label for="chkHamster">Hamster</label>
+
+                <input type="checkbox" name="chkTipo" id="chkPorco" value="Porco" /> 
+                <label for="chkPorco">Porco</label>
+
+                <p>Gênero do seu pet:</p>
+
+                <input type="radio" name="rbGenero" id="rbMacho" value="Macho" checked/> 
+                <label for="rbMacho">Macho</label><br>
+
+                <input type="radio" name="rbGenero" id="rbFemea" value="Fêmea"/> 
+                <label for="rbFemea">Fêmea</label><br><br>
+
+                <label for="history">História:</label>
+                <textarea id="history" name="history" rows="4" cols="50" maxlength="255"> </textarea>
+
+                <br><br>
+
+                <label for="nmbQtd">Quantidade:</label>
+                <input type="number" name="nmbQtd" id="nmbQtd" required maxlength="2">
+
+                <p>Foto do seu pet:</p> <input type="file" > <br><br>
+
+                <label for="txtCEP">CEP:</label>
+                <input type="text" name="txtCEP" id="txtCEP" size="50%" maxlength="9"
+                pattern="[0,9]-[0,9]" title="Formato aceito: 12345-678">
+
+                <br><br>
+
+                <button type="submit" onclick="Show()">Enviar</button>
+                <button type="reset">Redefinir</button>
+                
+
+            </fieldset>
+
+        </form>
+
+    </div>
+
+
+
+
+</body>
+</html>
